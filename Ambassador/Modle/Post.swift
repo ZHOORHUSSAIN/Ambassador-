@@ -24,7 +24,7 @@ struct Post {
 
 init(dict:[String:Any],id:String,user :User) {
     if let name = dict["name"] as? String,
-     let passportid = dict["passportid"] as? String,
+//       let passportid = dict["passportid"] as? String,
        let imageUrl = dict["imageUrl"] as? String,
        let expirdate = dict["expirdate"] as? String,
        let country = dict["country"] as? String,
@@ -45,7 +45,7 @@ init(dict:[String:Any],id:String,user :User) {
         self.dateofreturn = dateofreturn
         self.createdAt = createdAt
 }
-      self.passportid = passportid
+    self.passportid = id
       self.user = user
 }
 }
