@@ -1,20 +1,35 @@
 //
-//  ImageView.swift
+//  Imageview.swift
 //  Ambassador
 //
-//  Created by زهور حسين on 22/05/1443 AH.
+//  Created by زهور حسين on 23/05/1443 AH.
 //
 
+import Foundation
 import UIKit
-
-class ImageView: UIImageView {
-
-    /*
-    // Only override draw() if you perform custom drawing.
-    // An empty implementation adversely affects performance during animation.
-    override func draw(_ rect: CGRect) {
-        // Drawing code
+let imageCache = NSCache<NSString,UIImage>()
+extension UIImageView {
+    func circlerImage(){
+        self.layer.cornerRadius = self.frame.height/2
+        self.layer.masksToBounds = true
     }
-    */
-
+    func loadImageUsingCache(with urlString:String) {
+        if let cachedImage = imageCache.object(forKey: urlString as NSString) {
+            self.image = cachedImage
+        } else {
+            if let url = URL(string: urlString) {
+                DispatchQueue.global().async {
+                    if let data = try? Data(contentsOf: url){
+                        DispatchQueue.main.async {
+                            if let downloadedImage = UIImage(data: data) {
+                                imageCache.setObject(downloadedImage, forKey: urlString as NSString)
+                                self.image = downloadedImage
+                                
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
 }

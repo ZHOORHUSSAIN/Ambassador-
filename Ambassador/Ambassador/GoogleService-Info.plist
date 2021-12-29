@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>688578995858-n8shq2bfs2erplb1mfvvbjgmq72nkidb.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.688578995858-n8shq2bfs2erplb1mfvvbjgmq72nkidb</string>
+	<key>API_KEY</key>
+	<string>AIzaSyCcm17NnhEKBkjqRh59ZcfJ-1843rU0gO0</string>
+	<key>GCM_SENDER_ID</key>
+	<string>688578995858</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>Zhoor.com.Ambassador</string>
+	<key>PROJECT_ID</key>
+	<string>zhoorhussain-87066</string>
+	<key>STORAGE_BUCKET</key>
+	<string>zhoorhussain-87066.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:688578995858:ios:13c2b6c597e1cedff1284b</string>
+</dict>
+</plist>
