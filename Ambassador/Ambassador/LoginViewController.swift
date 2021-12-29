@@ -6,9 +6,15 @@
 //
 
 import UIKit
-
+import Firebase
 class LoginViewController: UIViewController {
-
+var activityIndicator = UIActivityIndicatorView()
+    
+    
+    @IBOutlet weak var emailTextfildlogin: UITextField!
+    
+    
+    @IBOutlet weak var psswordTextfildlogin: UITextField!
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -16,14 +22,21 @@ class LoginViewController: UIViewController {
     }
     
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    @IBAction func handleLogin(_ sender: Any) {
+        
+        if let email = emailTextfildlogin.text,
+           let password = psswordTextfildlogin.text {
+            Activity.showIndicator(parentView: self.view, childView: activityIndicator)
+            Auth.auth().signIn(withEmail: email, password: password) {
+        authResult, error in
+                if let _ = authResult {
+                    if let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "HomeNavigationController") as? UINavigationController {
+Activity.removeIndicator(parentView: self.view, childView: self.activityIndicator)
+                        self.present(vc, animated: true, completion: nil)
+                }
     }
-    */
-
+   
+}
+        }
+    }
 }
