@@ -6,7 +6,7 @@
 //
 
 import UIKit
-
+import Firebase
 class DetailsViewController: UIViewController {
     var selectedPost:Post?
     var selectedPostImage:UIImage?

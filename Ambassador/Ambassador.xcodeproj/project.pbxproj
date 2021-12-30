@@ -9,9 +9,9 @@
 /* Begin PBXBuildFile section */
 		F803CDB9277BA31100A0D02E /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = F803CDB8277BA31100A0D02E /* Post.swift */; };
 		F803CDC0277C36C300A0D02E /* PostCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F803CDBE277C36C300A0D02E /* PostCell.swift */; };
-		F803CDC1277C36C300A0D02E /* PostCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F803CDBF277C36C300A0D02E /* PostCell.xib */; };
 		F803CDC3277C52F900A0D02E /* PostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F803CDC2277C52F900A0D02E /* PostViewController.swift */; };
 		F803CDC5277C533500A0D02E /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F803CDC4277C533500A0D02E /* DetailsViewController.swift */; };
+		F81A3D43277D9BA400032AAA /* EmbassyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F81A3D42277D9BA400032AAA /* EmbassyViewController.swift */; };
 		F8967DFD2778975900893B39 /* Landingviewcontroller.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8967DFC2778975900893B39 /* Landingviewcontroller.swift */; };
 		F8967DFF2778996900893B39 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8967DFE2778996900893B39 /* RegisterViewController.swift */; };
 		F8967E0127789DEB00893B39 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8967E0027789DEB00893B39 /* HomeViewController.swift */; };
@@ -53,9 +53,9 @@
 /* Begin PBXFileReference section */
 		F803CDB8277BA31100A0D02E /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		F803CDBE277C36C300A0D02E /* PostCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCell.swift; sourceTree = "<group>"; };
-		F803CDBF277C36C300A0D02E /* PostCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PostCell.xib; sourceTree = "<group>"; };
 		F803CDC2277C52F900A0D02E /* PostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostViewController.swift; sourceTree = "<group>"; };
 		F803CDC4277C533500A0D02E /* DetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
+		F81A3D42277D9BA400032AAA /* EmbassyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmbassyViewController.swift; sourceTree = "<group>"; };
 		F8967DFC2778975900893B39 /* Landingviewcontroller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Landingviewcontroller.swift; sourceTree = "<group>"; };
 		F8967DFE2778996900893B39 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		F8967E0027789DEB00893B39 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
@@ -120,7 +120,6 @@
 			children = (
 				F8AB538F2774A22400603121 /* Main.storyboard */,
 				F803CDBE277C36C300A0D02E /* PostCell.swift */,
-				F803CDBF277C36C300A0D02E /* PostCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -130,6 +129,7 @@
 			children = (
 				F8967DFC2778975900893B39 /* Landingviewcontroller.swift */,
 				F8967E0227789E2E00893B39 /* LoginViewController.swift */,
+				F81A3D42277D9BA400032AAA /* EmbassyViewController.swift */,
 				F803CDC4277C533500A0D02E /* DetailsViewController.swift */,
 				F8967DFE2778996900893B39 /* RegisterViewController.swift */,
 				F803CDC2277C52F900A0D02E /* PostViewController.swift */,
@@ -315,7 +315,6 @@
 			files = (
 				F8AB53962774A22900603121 /* LaunchScreen.storyboard in Resources */,
 				F8AB53932774A22900603121 /* Assets.xcassets in Resources */,
-				F803CDC1277C36C300A0D02E /* PostCell.xib in Resources */,
 				F8AB53912774A22400603121 /* Main.storyboard in Resources */,
 				F8967E072779E72100893B39 /* GoogleService-Info.plist in Resources */,
 			);
@@ -345,6 +344,7 @@
 				F8967E102779E9C800893B39 /* Imageview.swift in Sources */,
 				F8967E0327789E2E00893B39 /* LoginViewController.swift in Sources */,
 				F803CDC3277C52F900A0D02E /* PostViewController.swift in Sources */,
+				F81A3D43277D9BA400032AAA /* EmbassyViewController.swift in Sources */,
 				F803CDC0277C36C300A0D02E /* PostCell.swift in Sources */,
 				F803CDB9277BA31100A0D02E /* Post.swift in Sources */,
 				F8967DFF2778996900893B39 /* RegisterViewController.swift in Sources */,

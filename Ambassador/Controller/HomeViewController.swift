@@ -5,7 +5,7 @@
 //  Created by زهور حسين on 22/05/1443 AH.
 //
 
-import UIKit
+import UIKit 
 import Firebase
 class HomeViewController: UIViewController {
     var posts = [Post] ()
@@ -16,7 +16,7 @@ class HomeViewController: UIViewController {
         didSet {
             postTableview.delegate = self
             postTableview.dataSource = self
-//            postTableview.register(UINib(nibName: "PostCell", bundle: nil), forCellReuseIdentifier: "PostCell")
+            //            postTableview.register(UINib(nibName: "PostCell", bundle: nil), forCellReuseIdentifier: "PostCell")
         }
     }
     
@@ -45,7 +45,7 @@ class HomeViewController: UIViewController {
                                 if let error = error {
                                     
                                     
-                                    print("ERROR user Data",error.localizedDescription)
+            print("ERROR user Data",error.localizedDescription)
                                 }
                                 if let userSnapshot = userSnapshot ,
                                    let userData = userSnapshot.data(){
@@ -85,7 +85,9 @@ class HomeViewController: UIViewController {
                         let postId = diff.document.documentID
                         if let deleteIndex = self.posts.firstIndex(where: {$0.passportid == postId}){
                             self.posts.remove(at: deleteIndex)
-                            
+                            DispatchQueue.main.async {
+                                self.postTableview.reloadData()
+                            }
                             self.postTableview.beginUpdates()
                             self.postTableview.deleteRows(at: [IndexPath(row: deleteIndex,section: 0)], with: .automatic)
                             self.postTableview.endUpdates()
@@ -97,6 +99,8 @@ class HomeViewController: UIViewController {
     }
     
     @IBAction func handleLogout(_ sender: Any) {
+
+        
         do {
             try Auth.auth().signOut()
             if let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "LandingNavigationController") as? UINavigationController {

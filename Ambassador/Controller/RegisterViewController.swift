@@ -49,7 +49,7 @@ class RegisterViewController: UIViewController {
            let password = passwordTextfild.text,
            let confirmPassword = passwordConfirmationtextfild.text,
            password == confirmPassword {
-            print("here!!!!!!!")
+           // print("here!!!!!!!")
 
             Activity.showIndicator(parentView: self.view, childView: activityIndicator)
             Auth.auth().createUser(withEmail: email, password: password){
@@ -73,10 +73,11 @@ class RegisterViewController: UIViewController {
                             if let url = url {
                                 print("URL",url.absoluteString)
                                 let db = Firestore.firestore()
-                                let userData: [String:String] = [
+                                let userData: [String:Any] = [
                                     "id":authResult.user.uid,
                                     "name":name,
                                     "email":email,
+                                    "usertype":false ,
                                     "imageUrl":url.absoluteString
                                 ]
                                 db.collection("users").document(authResult.user.uid)
