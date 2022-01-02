@@ -68,7 +68,7 @@ class PostViewController: UIViewController {
     @IBAction func handleactiontouch(_ sender: Any) {
         if let image = PostImageView.image,
            let imageData = image.jpegData(compressionQuality: 0.75),
-           let name = idTextFild.text,
+           let name = postnametextfild.text,
            let passportid = idTextFild.text,
            let currentUser = Auth.auth().currentUser {
             Activity.showIndicator(parentView: self.view, childView: activityIndicator)
