@@ -16,7 +16,7 @@ class HomeViewController: UIViewController {
         didSet {
             postTableview.delegate = self
             postTableview.dataSource = self
-            //            postTableview.register(UINib(nibName: "PostCell", bundle: nil), forCellReuseIdentifier: "PostCell")
+            postTableview.register(UINib(nibName: "PostCell", bundle: nil), forCellReuseIdentifier: "PostCell")
         }
     }
     
@@ -45,7 +45,7 @@ class HomeViewController: UIViewController {
                                 if let error = error {
                                     
                                     
-            print("ERROR user Data",error.localizedDescription)
+                                    print("ERROR user Data",error.localizedDescription)
                                 }
                                 if let userSnapshot = userSnapshot ,
                                    let userData = userSnapshot.data(){
@@ -57,13 +57,15 @@ class HomeViewController: UIViewController {
                                         self.postTableview.insertRows(at: [IndexPath(row: self.posts.count-1,section: 0)], with: .automatic)
                                     }else {
                                         self.posts.insert(post, at: 0)
-                                        DispatchQueue.main.async {
-                                            self.postTableview.reloadData()
-                                        }
+                                        
                                         
                                         self.postTableview.insertRows(at: [IndexPath(row: 0, section: 0)], with: .automatic)
+                                        
                                     }
                                     self.postTableview.endUpdates()
+                                    
+                                    
+                                    
                                 }
                             }
                         }
@@ -74,23 +76,24 @@ class HomeViewController: UIViewController {
                            let updateIndex = self.posts.firstIndex(where: {$0.passportid == postId}){
                             let newPost = Post(dict:postData, id: postId, user: currentPost.user)
                             self.posts[updateIndex] = newPost
-                            DispatchQueue.main.async {
-                                self.postTableview.reloadData()
-                            }
+                            
                             self.postTableview.beginUpdates()
                             self.postTableview.deleteRows(at: [IndexPath(row: updateIndex, section: 0)], with: .left)
                             self.postTableview.endUpdates()
+                            
+                            
                         }
                     case .removed:
                         let postId = diff.document.documentID
                         if let deleteIndex = self.posts.firstIndex(where: {$0.passportid == postId}){
                             self.posts.remove(at: deleteIndex)
-                            DispatchQueue.main.async {
-                                self.postTableview.reloadData()
-                            }
+                            
                             self.postTableview.beginUpdates()
                             self.postTableview.deleteRows(at: [IndexPath(row: deleteIndex,section: 0)], with: .automatic)
                             self.postTableview.endUpdates()
+                            
+                            
+                            
                         }
                     }
                 }
@@ -99,7 +102,7 @@ class HomeViewController: UIViewController {
     }
     
     @IBAction func handleLogout(_ sender: Any) {
-
+        
         
         do {
             try Auth.auth().signOut()

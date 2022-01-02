@@ -19,6 +19,7 @@ class RegisterViewController: UIViewController {
             userimageview.layer.masksToBounds = true
             let tabGesture = UITapGestureRecognizer(target: self, action: #selector(selectImage))
             userimageview.addGestureRecognizer(tabGesture)
+            userimageview.isUserInteractionEnabled = true
             
         }
         
