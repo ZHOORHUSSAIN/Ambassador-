@@ -36,7 +36,7 @@ class PostCell: UITableViewCell {
     
     func configure(with post:Post) -> UITableViewCell {
             usernamelable.text = post.name
-            passportid.text = post.passportid
+            passportid.text = post.id
             namelable.text = post.name
             postimageview.loadImageUsingCache(with: post.imageUrl)
             userimageView.loadImageUsingCache(with: post.user.imageUrl)

@@ -22,14 +22,39 @@ class PostViewController: UIViewController {
     
     @IBOutlet weak var idTextFild: UITextField!
     @IBOutlet weak var postnametextfild: UITextField!
+    
+    
+    @IBOutlet weak var phonenumbertextfild: UITextField!
+    
+    @IBOutlet weak var expirdatetextfild: UITextField!
+    
+    @IBOutlet weak var Countrytextfild: UITextField!
+    
+    @IBOutlet weak var Citytextfild: UITextField!
+    
+    @IBOutlet weak var nameofhoteltextfild: UITextField!
+    
+    @IBOutlet weak var dateofgoingtextfild: UITextField!
+    
+    
+    @IBOutlet weak var dateofreturntextfild: UITextField!
+    
+    
     let activityIndicator = UIActivityIndicatorView()
     override func viewDidLoad() {
         super.viewDidLoad()
         if let selectedPost = selectedPost,
         let selectedImage = selectedPostImage{
             postnametextfild.text = selectedPost.name
-            idTextFild.text = selectedPost.passportid
+            idTextFild.text = selectedPost.id
             PostImageView.image = selectedImage
+            expirdatetextfild.text = selectedPost.expirdate
+            phonenumbertextfild.text = selectedPost.phonenumber
+            Countrytextfild.text = selectedPost.country
+            Citytextfild.text = selectedPost.city
+//            nameofhoteltextfild.text = selectedPost.nameofhotel
+            dateofgoingtextfild.text = selectedPost.dateofgoing
+            dateofreturntextfild.text = selectedPost.dateofreturn
             actionBoutton.setTitle("Update Post", for: .normal)
             let deleteBarButton = UIBarButtonItem(image: UIImage(systemName: "trash.fill"), style: .plain, target: self, action: #selector(handleDelete))
             self.navigationItem.rightBarButtonItem = deleteBarButton
@@ -44,12 +69,12 @@ class PostViewController: UIViewController {
         let ref = Firestore.firestore().collection("posts")
         if let selectedPost = selectedPost {
             Activity.showIndicator(parentView: self.view, childView: activityIndicator)
-            ref.document(selectedPost.passportid).delete { error in
+            ref.document(selectedPost.id).delete { error in
                 if let error = error {
                     print("Error in db delete",error)
                 }else {
                     // Create a reference to the file to delete
-                    let storageRef = Storage.storage().reference(withPath: "posts/\(selectedPost.user.id)/\(selectedPost.passportid)")
+                    let storageRef = Storage.storage().reference(withPath: "posts/\(selectedPost.user.id)/\(selectedPost.id)")
                     // Delete the file
                     storageRef.delete { error in
                         if let error = error {
@@ -67,14 +92,21 @@ class PostViewController: UIViewController {
 
     @IBAction func handleactiontouch(_ sender: Any) {
         if let image = PostImageView.image,
-           let imageData = image.jpegData(compressionQuality: 0.75),
+           let imageData = image.jpegData(compressionQuality: 0.25),
            let name = postnametextfild.text,
            let passportid = idTextFild.text,
+           let phonenumber = phonenumbertextfild.text,
+           let expirydata = expirdatetextfild.text,
+           let country = Countrytextfild.text,
+           let city = Citytextfild.text,
+           let numberofhotele = nameofhoteltextfild.text,
+           let dategoing = dateofgoingtextfild.text,
+           let datereturn = dateofreturntextfild.text,
            let currentUser = Auth.auth().currentUser {
             Activity.showIndicator(parentView: self.view, childView: activityIndicator)
             var postId = ""
             if let selectedPost = selectedPost {
-                postId = selectedPost.passportid
+                postId = selectedPost.user.id
             }else {
                 postId = "\(Firebase.UUID())"
             }
@@ -95,6 +127,13 @@ class PostViewController: UIViewController {
                                 "userId":selectedPost.user.id,
                                 "name":name,
                                 "passportid":passportid,
+                                "expirdate":expirydata,
+                                "country": country,
+                                "phonenumber":phonenumber,
+                                "numberofhotele":numberofhotele,
+                                // nameofhotel
+                                "dateofgoing":dategoing,
+                                "dateofreturn":datereturn,
                                 "imageUrl":url.absoluteString,
                                 "createdAt":selectedPost.createdAt ?? FieldValue.serverTimestamp(),
                                 "updatedAt": FieldValue.serverTimestamp()
@@ -104,10 +143,17 @@ class PostViewController: UIViewController {
                                 "userId":currentUser.uid,
                                 "name":name,
                                 "passportid":passportid,
+                                "expirdate":expirydata,
+                                "country": country,
+                                "phonenumber":phonenumber,
+                                "numberofhotele":numberofhotele,
+                                "dateofgoing":dategoing,
+                                "dateofreturn":datereturn,
                                 "imageUrl":url.absoluteString,
                                 "createdAt":FieldValue.serverTimestamp(),
                                 "updatedAt": FieldValue.serverTimestamp()
                             ]
+                    
     }
                     
                     ref.document(postId).setData(postData) { error in

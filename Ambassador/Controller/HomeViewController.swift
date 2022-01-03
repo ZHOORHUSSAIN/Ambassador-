@@ -37,55 +37,49 @@ class HomeViewController: UIViewController {
                 print ("POST CANGES:",snapshot.documentChanges.count)
                 snapshot.documentChanges.forEach { diff in
                     let postData = diff.document.data()
+                    //                    print("!!!!!!!!!!!!! Post Data",postData)
                     switch diff.type {
                     case .added :
-                        
                         if let userId = postData["userId"] as? String {
                             ref.collection("users").document(userId).getDocument { userSnapshot, erroe in
                                 if let error = error {
-                                    
-                                    
                                     print("ERROR user Data",error.localizedDescription)
                                 }
                                 if let userSnapshot = userSnapshot ,
                                    let userData = userSnapshot.data(){
                                     let user = User(dict:userData)
                                     let post = Post(dict:postData,id:diff.document.documentID, user: user)
+                                    print("!!!!!!!!!!!!! Post",post)
+                                    
                                     self.postTableview.beginUpdates()
                                     if snapshot.documentChanges.count != 1 {
                                         self.posts.append(post)
                                         self.postTableview.insertRows(at: [IndexPath(row: self.posts.count-1,section: 0)], with: .automatic)
                                     }else {
                                         self.posts.insert(post, at: 0)
-                                        
-                                        
                                         self.postTableview.insertRows(at: [IndexPath(row: 0, section: 0)], with: .automatic)
-                                        
                                     }
                                     self.postTableview.endUpdates()
-                                    
-                                    
-                                    
                                 }
                             }
                         }
                         
                     case .modified:
                         let postId = diff.document.documentID
-                        if let currentPost = self.posts.first(where: {$0.passportid == postId}),
-                           let updateIndex = self.posts.firstIndex(where: {$0.passportid == postId}){
+                        if let currentPost = self.posts.first(where: {$0.id == postId}),
+                           let updateIndex = self.posts.firstIndex(where: {$0.id == postId}){
                             let newPost = Post(dict:postData, id: postId, user: currentPost.user)
                             self.posts[updateIndex] = newPost
                             
                             self.postTableview.beginUpdates()
-                            self.postTableview.deleteRows(at: [IndexPath(row: updateIndex, section: 0)], with: .left)
+                            self.postTableview.deleteRows(at: [IndexPath(row: updateIndex,section: 0)], with: .left)
+                            self.postTableview.insertRows(at: [IndexPath(row: updateIndex,section: 0)],with: .left)
                             self.postTableview.endUpdates()
-                            
                             
                         }
                     case .removed:
                         let postId = diff.document.documentID
-                        if let deleteIndex = self.posts.firstIndex(where: {$0.passportid == postId}){
+                        if let deleteIndex = self.posts.firstIndex(where: {$0.id == postId}){
                             self.posts.remove(at: deleteIndex)
                             
                             self.postTableview.beginUpdates()

@@ -21,7 +21,7 @@ class DetailsViewController: UIViewController {
         if let selectedPost = selectedPost,
         let selectedImage = selectedPostImage{
             nameTextfild.text = selectedPost.name
-            passportidtexfild.text = selectedPost.passportid
+            passportidtexfild.text = selectedPost.id
             postimageview.image = selectedImage
         }
 
