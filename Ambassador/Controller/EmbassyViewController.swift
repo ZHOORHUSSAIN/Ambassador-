@@ -13,6 +13,8 @@ class EmbassyViewController: UIViewController {
     var posts = [Post] ()
     var selectedPost:Post?
     var selectedPostImage:UIImage?
+    var filteredPost: [Post] = []
+    let searchController = UISearchController(searchResultsController: nil)
     
     @IBOutlet weak var embassytableview: UITableView!{
         didSet {
@@ -25,7 +27,13 @@ class EmbassyViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         getPosts()
+        navigationItem.searchController = searchController
+        navigationItem.hidesSearchBarWhenScrolling = true
         
+        searchController.obscuresBackgroundDuringPresentation = false
+        searchController.searchBar.placeholder = "Search"
+        definesPresentationContext = true
+        searchController.searchResultsUpdater = self
     }
     func getPosts() {
         let ref = Firestore.firestore()
@@ -114,11 +122,13 @@ class EmbassyViewController: UIViewController {
 }
 extension EmbassyViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return posts.count
+        return searchController.isActive ?filteredPost.count : posts.count
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) ->
     UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "PostCell") as! PostCell
+        let post = searchController.isActive ? filteredPost[indexPath.row]: posts[indexPath.row]
+        cell.configure(with: post)
         return cell.configure(with: posts[indexPath.row])
     }
 }
@@ -139,5 +149,15 @@ extension EmbassyViewController: UITableViewDelegate{
         }
     }
 }
-
+extension EmbassyViewController: UISearchResultsUpdating {
+    func updateSearchResults(for searchController: UISearchController) {
+        filteredPost = posts.filter({ selectedPost in
+            return
+            selectedPost.country.lowercased().contains(searchController.searchBar.text!.lowercased()) ||
+        selectedPost.name.lowercased().contains(searchController.searchBar.text!.lowercased()) ||
+            selectedPost.id.lowercased().contains(searchController.searchBar.text!.lowercased())
+        })
+        embassytableview.reloadData()
+    }
+}
 

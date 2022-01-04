@@ -8,10 +8,11 @@
 import UIKit 
 import Firebase
 class HomeViewController: UIViewController {
+    
     var posts = [Post] ()
     var selectedPost:Post?
     var selectedPostImage:UIImage?
-    
+   
     @IBOutlet weak var postTableview: UITableView!{
         didSet {
             postTableview.delegate = self
