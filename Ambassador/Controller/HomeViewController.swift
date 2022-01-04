@@ -69,6 +69,7 @@ class HomeViewController: UIViewController {
                         if let currentPost = self.posts.first(where: {$0.id == postId}),
                            let updateIndex = self.posts.firstIndex(where: {$0.id == postId}){
                             let newPost = Post(dict:postData, id: postId, user: currentPost.user)
+                        
                             self.posts[updateIndex] = newPost
                             
                             self.postTableview.beginUpdates()
@@ -77,6 +78,7 @@ class HomeViewController: UIViewController {
                             self.postTableview.endUpdates()
                             
                         }
+                        
                     case .removed:
                         let postId = diff.document.documentID
                         if let deleteIndex = self.posts.firstIndex(where: {$0.id == postId}){
@@ -138,7 +140,7 @@ extension HomeViewController: UITableViewDataSource {
 }
 extension HomeViewController: UITableViewDelegate{
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 200
+        return self.view.frame.height / 2
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let cell = tableView.cellForRow(at: indexPath) as! PostCell

@@ -16,6 +16,24 @@ class DetailsViewController: UIViewController {
     
     @IBOutlet weak var passportidtexfild: UILabel!
     
+    
+    @IBOutlet weak var phonenumbertextfild: UILabel!
+    
+    
+    @IBOutlet weak var expirdatetextfild: UILabel!
+    
+    @IBOutlet weak var countrytextfild: UILabel!
+    
+    @IBOutlet weak var citytextfild: UILabel!
+    
+    @IBOutlet weak var nameofhoteltextfild: UILabel!
+    
+    @IBOutlet weak var dateofgoingtextfild: UILabel!
+    
+    
+    @IBOutlet weak var dateofreturntextfild: UILabel!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         if let selectedPost = selectedPost,
@@ -23,6 +41,12 @@ class DetailsViewController: UIViewController {
             nameTextfild.text = selectedPost.name
             passportidtexfild.text = selectedPost.id
             postimageview.image = selectedImage
+            phonenumbertextfild.text = selectedPost.phonenumber
+            expirdatetextfild.text = selectedPost.expirdate
+            countrytextfild.text = selectedPost.country
+            dateofgoingtextfild.text = selectedPost.dateofgoing
+            dateofreturntextfild.text = selectedPost.dateofreturn
+            
         }
 
         // Do any additional setup after loading the view.

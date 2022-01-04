@@ -99,14 +99,14 @@ class PostViewController: UIViewController {
            let expirydata = expirdatetextfild.text,
            let country = Countrytextfild.text,
            let city = Citytextfild.text,
-           let numberofhotele = nameofhoteltextfild.text,
+          // let numberofhotele = nameofhoteltextfild.text,
            let dategoing = dateofgoingtextfild.text,
            let datereturn = dateofreturntextfild.text,
            let currentUser = Auth.auth().currentUser {
             Activity.showIndicator(parentView: self.view, childView: activityIndicator)
             var postId = ""
             if let selectedPost = selectedPost {
-                postId = selectedPost.user.id
+                postId = selectedPost.id
             }else {
                 postId = "\(Firebase.UUID())"
             }
@@ -130,8 +130,8 @@ class PostViewController: UIViewController {
                                 "expirdate":expirydata,
                                 "country": country,
                                 "phonenumber":phonenumber,
-                                "numberofhotele":numberofhotele,
-                                // nameofhotel
+                           //     "numberofhotele":numberofhotele,
+                               
                                 "dateofgoing":dategoing,
                                 "dateofreturn":datereturn,
                                 "imageUrl":url.absoluteString,
@@ -146,7 +146,7 @@ class PostViewController: UIViewController {
                                 "expirdate":expirydata,
                                 "country": country,
                                 "phonenumber":phonenumber,
-                                "numberofhotele":numberofhotele,
+                                //"numberofhotele":numberofhotele,
                                 "dateofgoing":dategoing,
                                 "dateofreturn":datereturn,
                                 "imageUrl":url.absoluteString,

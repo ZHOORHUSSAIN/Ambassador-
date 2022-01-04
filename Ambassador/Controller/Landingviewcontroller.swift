@@ -8,7 +8,8 @@
 import UIKit
 
 class Landingviewcontroller: UIViewController {
-
+    @IBOutlet weak var segmntedcontroller: UINavigationItem!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -16,14 +17,8 @@ class Landingviewcontroller: UIViewController {
     }
     
 
-    /*
-    // MARK: - Navigation
+    
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    @IBAction func segmintedcontrollerchangelangege(_ sender: Any) {
     }
-    */
-
 }

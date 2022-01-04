@@ -14,6 +14,8 @@
 		F81A3D4927817AC500032AAA /* LocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F81A3D4827817AC500032AAA /* LocationViewController.swift */; };
 		F81A3D4C27819CE300032AAA /* PostCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F81A3D4A27819CE300032AAA /* PostCell.swift */; };
 		F81A3D4D27819CE300032AAA /* PostCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F81A3D4B27819CE300032AAA /* PostCell.xib */; };
+		F81A3D5127831A4700032AAA /* BundleExtention.swift in Sources */ = {isa = PBXBuildFile; fileRef = F81A3D5027831A4700032AAA /* BundleExtention.swift */; };
+		F81A3D5A2783295100032AAA /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = F81A3D5C2783295100032AAA /* Localizable.strings */; };
 		F8967DFD2778975900893B39 /* Landingviewcontroller.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8967DFC2778975900893B39 /* Landingviewcontroller.swift */; };
 		F8967DFF2778996900893B39 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8967DFE2778996900893B39 /* RegisterViewController.swift */; };
 		F8967E0127789DEB00893B39 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8967E0027789DEB00893B39 /* HomeViewController.swift */; };
@@ -60,6 +62,11 @@
 		F81A3D4827817AC500032AAA /* LocationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationViewController.swift; sourceTree = "<group>"; };
 		F81A3D4A27819CE300032AAA /* PostCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCell.swift; sourceTree = "<group>"; };
 		F81A3D4B27819CE300032AAA /* PostCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PostCell.xib; sourceTree = "<group>"; };
+		F81A3D4E2783113100032AAA /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/Main.strings; sourceTree = "<group>"; };
+		F81A3D4F2783113100032AAA /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		F81A3D5027831A4700032AAA /* BundleExtention.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BundleExtention.swift; sourceTree = "<group>"; };
+		F81A3D5B2783295100032AAA /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		F81A3D5D2783295300032AAA /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/Localizable.strings; sourceTree = "<group>"; };
 		F8967DFC2778975900893B39 /* Landingviewcontroller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Landingviewcontroller.swift; sourceTree = "<group>"; };
 		F8967DFE2778996900893B39 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		F8967E0027789DEB00893B39 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
@@ -156,6 +163,8 @@
 		F8AB537D2774A22400603121 = {
 			isa = PBXGroup;
 			children = (
+				F81A3D5C2783295100032AAA /* Localizable.strings */,
+				F81A3D5027831A4700032AAA /* BundleExtention.swift */,
 				F81A3D3E277C976200032AAA /* Modle */,
 				F81A3D3F277C977D00032AAA /* View */,
 				F81A3D40277C978B00032AAA /* Controller */,
@@ -298,6 +307,7 @@
 			knownRegions = (
 				en,
 				Base,
+				ar,
 			);
 			mainGroup = F8AB537D2774A22400603121;
 			packageReferences = (
@@ -321,6 +331,7 @@
 			files = (
 				F8AB53962774A22900603121 /* LaunchScreen.storyboard in Resources */,
 				F8AB53932774A22900603121 /* Assets.xcassets in Resources */,
+				F81A3D5A2783295100032AAA /* Localizable.strings in Resources */,
 				F81A3D4D27819CE300032AAA /* PostCell.xib in Resources */,
 				F8AB53912774A22400603121 /* Main.storyboard in Resources */,
 				F8967E072779E72100893B39 /* GoogleService-Info.plist in Resources */,
@@ -356,6 +367,7 @@
 				F8967DFF2778996900893B39 /* RegisterViewController.swift in Sources */,
 				F8AB538A2774A22400603121 /* AppDelegate.swift in Sources */,
 				F8967DFD2778975900893B39 /* Landingviewcontroller.swift in Sources */,
+				F81A3D5127831A4700032AAA /* BundleExtention.swift in Sources */,
 				F8967E122779E9F300893B39 /* Activity.swift in Sources */,
 				F8AB538C2774A22400603121 /* SceneDelegate.swift in Sources */,
 				F8967E14277B317800893B39 /* User.swift in Sources */,
@@ -399,10 +411,20 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		F81A3D5C2783295100032AAA /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F81A3D5B2783295100032AAA /* en */,
+				F81A3D5D2783295300032AAA /* ar */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
 		F8AB538F2774A22400603121 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				F8AB53902774A22400603121 /* Base */,
+				F81A3D4E2783113100032AAA /* ar */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -411,6 +433,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				F8AB53952774A22900603121 /* Base */,
+				F81A3D4F2783113100032AAA /* ar */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -422,6 +445,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
@@ -483,6 +507,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
