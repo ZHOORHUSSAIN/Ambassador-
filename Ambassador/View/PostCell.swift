@@ -27,6 +27,7 @@ class PostCell: UITableViewCell {
     @IBOutlet weak var expirydate: UILabel!
     
     
+    @IBOutlet weak var citylable: UILabel!
     @IBOutlet weak var country: UILabel!
     
     @IBOutlet weak var nameofhotel: UILabel!
@@ -58,7 +59,8 @@ class PostCell: UITableViewCell {
         phonenumber.text = post.phonenumber
         expirydate.text = post.expirdate
         country.text = post.country
-       // nameofhotel.text = post.
+        citylable.text = post.city
+        nameofhotel.text = post.nameofhotel
         dateofgoing.text = post.dateofgoing
         dateofreturn.text = post.dateofreturn
             postimageview.loadImageUsingCache(with: post.imageUrl)

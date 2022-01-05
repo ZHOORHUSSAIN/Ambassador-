@@ -41,6 +41,39 @@ class PostViewController: UIViewController {
     
     
     let activityIndicator = UIActivityIndicatorView()
+    
+    
+    @IBOutlet weak var Namelablepost: UILabel!
+    
+    
+    @IBOutlet weak var Phonenumberlablepost: UILabel!
+    
+    
+    
+    @IBOutlet weak var Passportidlablepost: UILabel!
+    
+    
+    @IBOutlet weak var expirdatelablepost: UILabel!
+    
+    
+    @IBOutlet weak var RecordingFlightDataPost: UILabel!
+    
+    
+    @IBOutlet weak var Countrylablepost: UILabel!
+    
+    @IBOutlet weak var citylablepost: UILabel!
+    
+    
+    @IBOutlet weak var nameofhotellablePost: UILabel!
+    
+    
+    @IBOutlet weak var dateofgoinglable: UILabel!
+    
+    @IBOutlet weak var dateofreturnlable: UILabel!
+    
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         if let selectedPost = selectedPost,
@@ -52,14 +85,14 @@ class PostViewController: UIViewController {
             phonenumbertextfild.text = selectedPost.phonenumber
             Countrytextfild.text = selectedPost.country
             Citytextfild.text = selectedPost.city
-//            nameofhoteltextfild.text = selectedPost.nameofhotel
+           nameofhoteltextfild.text = selectedPost.nameofhotel
             dateofgoingtextfild.text = selectedPost.dateofgoing
             dateofreturntextfild.text = selectedPost.dateofreturn
-            actionBoutton.setTitle("Update Post", for: .normal)
+            actionBoutton.setTitle("Update Post".localized, for: .normal)
             let deleteBarButton = UIBarButtonItem(image: UIImage(systemName: "trash.fill"), style: .plain, target: self, action: #selector(handleDelete))
             self.navigationItem.rightBarButtonItem = deleteBarButton
         }else {
-            actionBoutton.setTitle("Add Post", for: .normal)
+            actionBoutton.setTitle("Add Post".localized, for: .normal)
             self.navigationItem.rightBarButtonItem = nil
         }
 
@@ -99,7 +132,7 @@ class PostViewController: UIViewController {
            let expirydata = expirdatetextfild.text,
            let country = Countrytextfild.text,
            let city = Citytextfild.text,
-          // let numberofhotele = nameofhoteltextfild.text,
+           let nameofhotel = nameofhoteltextfild.text,
            let dategoing = dateofgoingtextfild.text,
            let datereturn = dateofreturntextfild.text,
            let currentUser = Auth.auth().currentUser {
@@ -129,10 +162,10 @@ class PostViewController: UIViewController {
                                 "passportid":passportid,
                                 "expirdate":expirydata,
                                 "country": country,
+                                "city":city,
                                 "phonenumber":phonenumber,
-                           //     "numberofhotele":numberofhotele,
-                               
-                                "dateofgoing":dategoing,
+                                "nameofhotel":nameofhotel,
+                               "dateofgoing":dategoing,
                                 "dateofreturn":datereturn,
                                 "imageUrl":url.absoluteString,
                                 "createdAt":selectedPost.createdAt ?? FieldValue.serverTimestamp(),
@@ -145,8 +178,9 @@ class PostViewController: UIViewController {
                                 "passportid":passportid,
                                 "expirdate":expirydata,
                                 "country": country,
+                                "city":city,
                                 "phonenumber":phonenumber,
-                                //"numberofhotele":numberofhotele,
+                                "nameofhotel":nameofhotel,
                                 "dateofgoing":dategoing,
                                 "dateofreturn":datereturn,
                                 "imageUrl":url.absoluteString,

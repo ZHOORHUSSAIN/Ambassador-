@@ -35,6 +35,53 @@ class RegisterViewController: UIViewController {
     
     @IBOutlet weak var passwordConfirmationtextfild: UITextField!
     
+    @IBOutlet weak var Namelable: UILabel!{
+        didSet {
+            Namelable.text = "Name".localized
+        }
+    }
+    
+    
+    @IBOutlet weak var Emaillable: UILabel!{
+        didSet {
+            Emaillable.text = "Email".localized
+        }
+    }
+    
+    @IBOutlet weak var passwordlable: UILabel!{
+        didSet {
+            passwordlable.text = "Password".localized
+        }
+    }
+    
+    
+    @IBOutlet weak var confirmpasswordlable: UILabel!{
+        didSet {
+            confirmpasswordlable.text = "Password".localized
+        }
+    }
+    
+    
+    @IBOutlet weak var Registerbutton: UIButton!{
+        didSet {
+            Registerbutton.setTitle(NSLocalizedString("Register", tableName: "Localizable",  comment: ""), for: .normal)
+        }
+    }
+    
+    @IBOutlet weak var ORlable: UILabel!{
+        didSet {
+            ORlable.text = "OR".localized
+        }
+    }
+    
+    @IBOutlet weak var Loginbutton: UIButton!{
+        didSet {
+            Loginbutton.setTitle(NSLocalizedString("Login", tableName: "Localizable",  comment: ""), for: .normal)
+        }
+    }
+    
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()

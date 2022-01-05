@@ -44,6 +44,8 @@ class DetailsViewController: UIViewController {
             phonenumbertextfild.text = selectedPost.phonenumber
             expirdatetextfild.text = selectedPost.expirdate
             countrytextfild.text = selectedPost.country
+            citytextfild.text = selectedPost.city
+            nameofhoteltextfild.text = selectedPost.nameofhotel
             dateofgoingtextfild.text = selectedPost.dateofgoing
             dateofreturntextfild.text = selectedPost.dateofreturn
             

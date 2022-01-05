@@ -15,6 +15,41 @@ var activityIndicator = UIActivityIndicatorView()
     
     
     @IBOutlet weak var psswordTextfildlogin: UITextField!
+    
+    
+    @IBOutlet weak var lableEmaillogin: UILabel!{
+        didSet {
+            lableEmaillogin.text = "Email".localized
+        }
+    }
+    
+    
+    @IBOutlet weak var lablepasswordlogin: UILabel!{
+        didSet {
+            lablepasswordlogin.text = "Password".localized
+        }
+    }
+    
+    @IBOutlet weak var loginButton: UIButton!{
+        didSet {
+            loginButton.setTitle(NSLocalizedString("Login", tableName: "Localizable",  comment: ""), for: .normal)
+        }
+    }
+    
+    @IBOutlet weak var ORLoginlable: UILabel!{
+        didSet {
+            ORLoginlable.text = "OR".localized
+        }
+    }
+    
+    
+    
+    @IBOutlet weak var Registerlogin: UIButton!{
+        didSet {
+            Registerlogin.setTitle(NSLocalizedString("Login", tableName: "Localizable",  comment: ""), for: .normal)
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 

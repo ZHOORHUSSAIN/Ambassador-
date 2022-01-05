@@ -6,12 +6,18 @@
 "Email" = "Email";
 "Password" = "Password";
 "Password" = "Password";
-"Register" = "Register";
-"OR" = "OR";
-"Login" = "Login";
-"Email" = "Email";
-"Password" = "Password";
-"Login" = "Login";
-"OR" = "OR";
-"Register" = "Register";
-"Logout" = "Logout";
+"phonenumber" ="phonenumber";
+"Passportid" = "Passportid";
+"expirdate" = "expirdate";
+"Recording Flight Data" = "Recording Flight Data";
+"Country" = "Country";
+"City" = "City";
+"nameofhotel" = "nameofhotel";
+"dateofgoing" = "dateofgoing";
+"dateofreturn" = "dateofreturn";
+"Update Post" = "Update Post";
+"Add Post" = "Add Post";
+"Detect Location" = "Detect Location";
+"Ask me" = "Ask me";
+"Health Passport" = "Health Passport";
+

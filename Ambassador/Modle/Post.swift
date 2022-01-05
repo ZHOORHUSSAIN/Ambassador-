@@ -52,7 +52,7 @@ struct Post {
     var country = ""
     var city = ""
     var phonenumber = ""
-//    var nameofhotel = ""
+   var nameofhotel = ""
     var dateofgoing = ""
     var dateofreturn = ""
     var createdAt:Timestamp?
@@ -61,8 +61,9 @@ struct Post {
            let imageUrl = dict["imageUrl"] as? String,
            let expirdate = dict["expirdate"] as? String,
            let country = dict["country"] as? String,
+           let city = dict["city"] as? String,
            let phonenumber = dict["phonenumber"] as? String,
-//           let nameofhotel = dict["nameofhotel"] as? String,
+           let nameofhotel = dict["nameofhotel"] as? String,
            let dateofgoing = dict["dateofgoing"] as? String,
            let dateofreturn = dict["dateofreturn"] as? String,
            let createdAt = dict["createdAt"] as? Timestamp {
@@ -70,8 +71,9 @@ struct Post {
             self.imageUrl = imageUrl
             self.expirdate = expirdate
             self.country = country
+            self.city = city
             self.phonenumber = phonenumber
-//            self.nameofhotel = nameofhotel
+            self.nameofhotel = nameofhotel
             self.dateofgoing = dateofgoing
             self.dateofreturn = dateofreturn
             self.createdAt = createdAt
