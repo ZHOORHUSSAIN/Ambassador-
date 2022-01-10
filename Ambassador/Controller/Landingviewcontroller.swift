@@ -8,21 +8,28 @@
 import UIKit
 
 class Landingviewcontroller: UIViewController {
-    @IBOutlet weak var segmntedcontroller: UISegmentedControl!{
+    
+    
+    @IBOutlet weak var segmintControllerChange: UISegmentedControl!{
+    
+    
+//    @IBOutlet weak var segmntedcontroller: UISegmentedControl!{
+        
+        
         didSet {
             if let lang = UserDefaults.standard.string(forKey: "currentLanguage") {
                        switch lang {
                        case "ar":
-                           segmntedcontroller.selectedSegmentIndex = 0
+                           segmintControllerChange.selectedSegmentIndex = 0
                        case "en":
-                           segmntedcontroller.selectedSegmentIndex = 1
+                           segmintControllerChange.selectedSegmentIndex = 1
                        default:
                            let localLang =  Locale.current.languageCode
                             if localLang == "en" {
-                                segmntedcontroller.selectedSegmentIndex = 1
+                                segmintControllerChange.selectedSegmentIndex = 1
                             
                             }else {
-                                segmntedcontroller.selectedSegmentIndex = 0
+                                segmintControllerChange.selectedSegmentIndex = 0
                             }
                          
                        }
@@ -31,12 +38,12 @@ class Landingviewcontroller: UIViewController {
                        let localLang =  Locale.current.languageCode
                        UserDefaults.standard.setValue([localLang], forKey: "AppleLanaguge")
                         if localLang == "en" {
-                            segmntedcontroller.selectedSegmentIndex = 1
+                            segmintControllerChange.selectedSegmentIndex = 1
                             
                         }else {
                             
-                            segmntedcontroller.selectedSegmentIndex = 0
-                            segmntedcontroller.selectedSegmentIndex = 1
+                            segmintControllerChange.selectedSegmentIndex = 0
+                            segmintControllerChange.selectedSegmentIndex = 1
                         }
                    }
                }
@@ -44,7 +51,7 @@ class Landingviewcontroller: UIViewController {
     
     @IBOutlet weak var Login: UIButton!{
         didSet {
-            Login.setTitle(NSLocalizedString("Login", tableName: "Localizable", comment: ""), for: .normal)
+            Login.setTitle("Login".localized, for: .normal)
     
         }
     }
@@ -55,7 +62,7 @@ class Landingviewcontroller: UIViewController {
     }
     @IBOutlet weak var Register: UIButton!{
         didSet {
-            Register.setTitle(NSLocalizedString("Register", tableName: "Localizable",  comment: ""), for: .normal)
+            Register.setTitle("Register".localized, for: .normal)
         }
     }
     override func viewDidLoad() {

@@ -34,6 +34,15 @@ class DetailsViewController: UIViewController {
     @IBOutlet weak var dateofreturntextfild: UILabel!
     
     
+    @IBOutlet weak var nextlable: UIButton!{
+        didSet {
+            nextlable.setTitle("next".localized, for: .normal)
+        }
+    }
+    
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         if let selectedPost = selectedPost,

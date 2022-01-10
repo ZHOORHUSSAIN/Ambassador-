@@ -28,6 +28,38 @@ class LocationViewController: UIViewController,CLLocationManagerDelegate {
     var locationManager = CLLocationManager()
     
     
+    
+    @IBOutlet weak var DetectLocationButton: UIButton!{
+        didSet {
+    DetectLocationButton.setTitle("Detect Location".localized, for: .normal)
+        }
+    }
+    
+    
+    @IBOutlet weak var Askme: UILabel!{
+        didSet {
+            Askme.text = "Ask me".localized
+            
+            Askme.layer.masksToBounds = true
+            Askme.layer.cornerRadius = 4
+        }
+    }
+    
+    
+    
+    @IBOutlet weak var HealthPassportlable: UILabel!{
+        didSet {
+            HealthPassportlable.text = "Health Passport".localized
+            
+            
+            HealthPassportlable.layer.masksToBounds = true
+            HealthPassportlable.layer.cornerRadius = 4
+            
+        }
+    }
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 

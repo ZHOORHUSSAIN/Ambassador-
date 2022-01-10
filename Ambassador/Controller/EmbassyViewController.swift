@@ -131,23 +131,58 @@ extension EmbassyViewController: UITableViewDataSource {
         cell.configure(with: post)
         return cell.configure(with: posts[indexPath.row])
     }
-}
+    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        selectedPost = posts[indexPath.row]
+                let deleteAction = UIContextualAction(style: .destructive, title: "") { action, view, completionHandler in
+                    
+                        let ref = Firestore.firestore().collection("posts")
+                    if let selectedPost = self.selectedPost {
+                           
+                            ref.document(selectedPost.id).delete { error in
+                                if let error = error {
+                                    print("Error in db delete",error)
+                                }else {
+                                    // Create a reference to the file to delete
+                                    let storageRef = Storage.storage().reference(withPath: "posts/\(selectedPost.user.id)/\(selectedPost.id)")
+                                    // Delete the file
+                                    storageRef.delete { error in
+                                        if let error = error {
+                                            print("Error in storage delete",error)
+                                        }
+                                    }
+                                    
+                                }
+                            }
+                        }
+                    
+                    self.posts.remove(at: indexPath.row)
+                    tableView.beginUpdates()
+                    tableView.deleteRows(at: [indexPath], with: .automatic)
+                    tableView.endUpdates()
+                    completionHandler(true)
+                }
+                deleteAction.image = UIImage(systemName: "trash.fill")
+                return UISwipeActionsConfiguration(actions: [deleteAction])
+            }
+    }
+
 extension EmbassyViewController: UITableViewDelegate{
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 300
     }
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let cell = tableView.cellForRow(at: indexPath) as! PostCell
-        selectedPostImage = cell.postimageview.image
-        selectedPost = posts[indexPath.row]
-        if let currentUser = Auth.auth().currentUser,
-           currentUser.uid == posts[indexPath.row].user.id{
-            performSegue(withIdentifier: "toPostVC", sender: self)
-        }else {
-            performSegue(withIdentifier: "toDetailsVC", sender: self)
-            
-        }
-    }
+//    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+//        let cell = tableView.cellForRow(at: indexPath) as! PostCell
+//        selectedPostImage = cell.postimageview.image
+//        selectedPost = posts[indexPath.row]
+//        if let currentUser = Auth.auth().currentUser,
+//           currentUser.uid == posts[indexPath.row].user.id{
+//            performSegue(withIdentifier: "toPostVC", sender: self)
+//        }else {
+//            performSegue(withIdentifier: "toDetailsVC", sender: self)
+//            
+//        }
+//    }
+  
 }
 extension EmbassyViewController: UISearchResultsUpdating {
     func updateSearchResults(for searchController: UISearchController) {
@@ -159,5 +194,6 @@ extension EmbassyViewController: UISearchResultsUpdating {
         })
         embassytableview.reloadData()
     }
+    
 }
 

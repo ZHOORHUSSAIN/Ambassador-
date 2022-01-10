@@ -1,5 +1,5 @@
 
-"Register" = "إنشاءحساب";
+"Register" = "إنشاء حساب";
 "OR" = "أو";
 "Login" = "تسجيل الدخول";
 "Name" = "الإسم";
@@ -20,4 +20,5 @@
 "Detect Location" = "تحديد الموقع";
 "Ask me" = "اسألني";
 "Health Passport" = "الجواز الصحي";
-
+"backButton" = "رجوع";
+"next" = "التالي";

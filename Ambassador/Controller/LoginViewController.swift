@@ -32,7 +32,7 @@ var activityIndicator = UIActivityIndicatorView()
     
     @IBOutlet weak var loginButton: UIButton!{
         didSet {
-            loginButton.setTitle(NSLocalizedString("Login", tableName: "Localizable",  comment: ""), for: .normal)
+            loginButton.setTitle("Login".localized, for: .normal)
         }
     }
     
@@ -46,7 +46,7 @@ var activityIndicator = UIActivityIndicatorView()
     
     @IBOutlet weak var Registerlogin: UIButton!{
         didSet {
-            Registerlogin.setTitle(NSLocalizedString("Login", tableName: "Localizable",  comment: ""), for: .normal)
+            Registerlogin.setTitle("Register".localized, for: .normal)
         }
     }
     
@@ -56,7 +56,22 @@ var activityIndicator = UIActivityIndicatorView()
         // Do any additional setup after loading the view.
     }
     
+    @IBAction func eyePassword(_ sender: AnyObject) {
+        
+        psswordTextfildlogin.isSecureTextEntry.toggle()
+                       if  psswordTextfildlogin.isSecureTextEntry {
+                           if let image = UIImage(systemName: "eye.fill") {
+                               sender.setImage(image, for: .normal)
+                           }
+                       } else {
+                           if let image = UIImage(systemName: "eye.slash.fill") {
+                               sender.setImage(image, for: .normal)
+                           }
+                       }
+                   }
 
+    
+    
     @IBAction func handleLogin(_ sender: Any) {
         
         if let email = emailTextfildlogin.text,

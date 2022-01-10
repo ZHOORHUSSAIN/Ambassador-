@@ -43,33 +43,76 @@ class PostViewController: UIViewController {
     let activityIndicator = UIActivityIndicatorView()
     
     
-    @IBOutlet weak var Namelablepost: UILabel!
+    @IBOutlet weak var Namelablepost: UILabel!{
+        didSet {
+            Namelablepost.text = "Name".localized
+        }
+    }
     
     
-    @IBOutlet weak var Phonenumberlablepost: UILabel!
+    @IBOutlet weak var Phonenumberlablepost: UILabel!{
+        didSet {
+            Phonenumberlablepost.text = "phonenumber".localized
+        }
+    }
     
     
     
-    @IBOutlet weak var Passportidlablepost: UILabel!
+    @IBOutlet weak var Passportidlablepost: UILabel!{
+        didSet {
+            Passportidlablepost.text = "Passportid".localized
+        }
+    }
     
     
-    @IBOutlet weak var expirdatelablepost: UILabel!
+    @IBOutlet weak var expirdatelablepost: UILabel!{
+        didSet {
+            expirdatelablepost.text = "expirdate".localized
+        }
+    }
     
     
-    @IBOutlet weak var RecordingFlightDataPost: UILabel!
+    @IBOutlet weak var RecordingFlightDataPost: UILabel!{
+        didSet {
+            RecordingFlightDataPost.text = "Recording Flight Data".localized
+    
+            RecordingFlightDataPost.layer.masksToBounds = true
+            RecordingFlightDataPost.layer.cornerRadius = 4
+        }
+    }
     
     
-    @IBOutlet weak var Countrylablepost: UILabel!
+    @IBOutlet weak var Countrylablepost: UILabel!{
+        didSet {
+            Countrylablepost.text = "Country".localized
+        }
+    }
     
-    @IBOutlet weak var citylablepost: UILabel!
+    @IBOutlet weak var citylablepost: UILabel!{
+        didSet {
+            citylablepost.text = "City".localized
+        }
+    }
     
     
-    @IBOutlet weak var nameofhotellablePost: UILabel!
+    @IBOutlet weak var nameofhotellablePost: UILabel!{
+        didSet {
+            nameofhotellablePost.text = "nameofhotel".localized
+        }
+    }
     
     
-    @IBOutlet weak var dateofgoinglable: UILabel!
+    @IBOutlet weak var dateofgoinglable: UILabel!{
+        didSet {
+            dateofgoinglable.text = "dateofgoing".localized
+        }
+    }
     
-    @IBOutlet weak var dateofreturnlable: UILabel!
+    @IBOutlet weak var dateofreturnlable: UILabel!{
+        didSet {
+            dateofreturnlable.text = "dateofreturn".localized
+        }
+    }
     
     
     
