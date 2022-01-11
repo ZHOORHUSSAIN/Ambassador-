@@ -119,6 +119,9 @@ class PostViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        navigationItem.backBarButtonItem = UIBarButtonItem(title: "backButton".localized, style: .plain, target: nil, action: nil)
+        
         if let selectedPost = selectedPost,
         let selectedImage = selectedPostImage{
             postnametextfild.text = selectedPost.name
