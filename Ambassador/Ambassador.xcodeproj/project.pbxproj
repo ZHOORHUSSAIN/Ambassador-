@@ -35,6 +35,7 @@
 		F8AB53A12774A22900603121 /* AmbassadorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8AB53A02774A22900603121 /* AmbassadorTests.swift */; };
 		F8AB53AB2774A22900603121 /* AmbassadorUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8AB53AA2774A22900603121 /* AmbassadorUITests.swift */; };
 		F8AB53AD2774A22900603121 /* AmbassadorUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8AB53AC2774A22900603121 /* AmbassadorUITestsLaunchTests.swift */; };
+		F8CBF0A7278DAFDD0073794A /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8CBF0A6278DAFDD0073794A /* Alert.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -87,6 +88,7 @@
 		F8AB53A62774A22900603121 /* AmbassadorUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AmbassadorUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F8AB53AA2774A22900603121 /* AmbassadorUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AmbassadorUITests.swift; sourceTree = "<group>"; };
 		F8AB53AC2774A22900603121 /* AmbassadorUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AmbassadorUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		F8CBF0A6278DAFDD0073794A /* Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -141,6 +143,7 @@
 			children = (
 				F8967DFC2778975900893B39 /* Landingviewcontroller.swift */,
 				F8967E0227789E2E00893B39 /* LoginViewController.swift */,
+				F8CBF0A6278DAFDD0073794A /* Alert.swift */,
 				F81A3D4827817AC500032AAA /* LocationViewController.swift */,
 				F81A3D42277D9BA400032AAA /* EmbassyViewController.swift */,
 				F803CDC4277C533500A0D02E /* DetailsViewController.swift */,
@@ -362,6 +365,7 @@
 				F8967E102779E9C800893B39 /* Imageview.swift in Sources */,
 				F8967E0327789E2E00893B39 /* LoginViewController.swift in Sources */,
 				F803CDC3277C52F900A0D02E /* PostViewController.swift in Sources */,
+				F8CBF0A7278DAFDD0073794A /* Alert.swift in Sources */,
 				F81A3D43277D9BA400032AAA /* EmbassyViewController.swift in Sources */,
 				F803CDB9277BA31100A0D02E /* Post.swift in Sources */,
 				F8967DFF2778996900893B39 /* RegisterViewController.swift in Sources */,

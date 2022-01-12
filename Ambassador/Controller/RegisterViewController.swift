@@ -13,7 +13,7 @@ class RegisterViewController: UIViewController {
     
     @IBOutlet weak var userimageview: UIImageView!{
         didSet {
-            userimageview.layer.borderColor = UIColor.systemGreen.cgColor
+            userimageview.layer.borderColor = UIColor.systemGray.cgColor
             userimageview.layer.borderWidth = 3.0
             userimageview.layer.cornerRadius = userimageview.bounds.height / 2
             userimageview.layer.masksToBounds = true
@@ -135,8 +135,14 @@ class RegisterViewController: UIViewController {
             Auth.auth().createUser(withEmail: email, password: password){
                 authResult, error in
                 if let error = error {
-                    print("Registration Auth Error",error.localizedDescription)
-                }
+                    
+                    Alert.showAlert(strTitle: "Error", strMessage: error.localizedDescription, viewController: self)
+                                        Activity.removeIndicator(parentView: self.view, childView: self.activityIndicator)
+                                        print("Registration Auth Error",error.localizedDescription)
+                                    }
+                    
+                 //   print("Registration Auth Error",error.localizedDescription)
+                
                 if let authResult = authResult {
                     let storageRef = Storage.storage().reference(withPath: "users/\(authResult.user.uid)")
                     let uploadMeta = StorageMetadata.init()
@@ -178,6 +184,11 @@ class RegisterViewController: UIViewController {
                     }
                 }
             }
+//        }else{
+//            if passwordTextfild.text != passwordConfirmationtextfild.text!{
+//                errorLable.te
+//            }
+//        }
         }
     }
 }

@@ -11,7 +11,13 @@ class LoginViewController: UIViewController {
 var activityIndicator = UIActivityIndicatorView()
     
     
-    @IBOutlet weak var emailTextfildlogin: UITextField!
+    @IBOutlet weak var emailTextfildlogin: UITextField!{
+        didSet {
+            emailTextfildlogin.layer.cornerRadius = 15
+            emailTextfildlogin.layer.shadowRadius = 10
+            emailTextfildlogin.layer.shadowOpacity = 0.3
+        }
+    }
     
     
     @IBOutlet weak var psswordTextfildlogin: UITextField!
@@ -84,8 +90,14 @@ var activityIndicator = UIActivityIndicatorView()
                     let db = Firestore.firestore()
                 db.collection("users").document(currentUser.uid).getDocument { userSnapshot, error in
                     if let error = error{
-                        print(error)
-                    }
+                        Alert.showAlert(strTitle: "Error", strMessage: error.localizedDescription, viewController: self)
+                                            Activity.removeIndicator(parentView: self.view, childView: self.activityIndicator)
+                                            print("Registration Auth Error",error.localizedDescription)
+                                        }
+                        
+                        
+                    //   print(error)
+                
                     if let userSnapshot = userSnapshot,
                        let userData = userSnapshot.data(){
                         let user = User(dict: userData)
@@ -108,7 +120,16 @@ var activityIndicator = UIActivityIndicatorView()
 //                }
     }
    
-}
+                }else {
+                    if let error = error {
+                        Alert.showAlert(strTitle: "Error", strMessage: error.localizedDescription, viewController: self)
+                        Activity.removeIndicator(parentView: self.view, childView: self.activityIndicator)
+                        print("Registration Auth Error",error.localizedDescription)
+                        
+                    }
+                    
+                    
+                }
         }
     }
 }
