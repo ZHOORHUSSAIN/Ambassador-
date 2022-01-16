@@ -23,4 +23,4 @@ Tuwaiq Academy Final Project
 
 ## Wireframe
 
-![](wireframe.png)
+![](Wireframe.png)
