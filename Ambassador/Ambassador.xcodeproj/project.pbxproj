@@ -60,7 +60,7 @@
 		F803CDB8277BA31100A0D02E /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		F803CDC2277C52F900A0D02E /* PostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostViewController.swift; sourceTree = "<group>"; };
 		F803CDC4277C533500A0D02E /* DetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
-		F81A3D42277D9BA400032AAA /* EmbassyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmbassyViewController.swift; sourceTree = "<group>"; };
+		F81A3D42277D9BA400032AAA /* EmbassyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmbassyViewController.swift; sourceTree = "<group>"; wrapsLines = 1; };
 		F81A3D4827817AC500032AAA /* LocationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationViewController.swift; sourceTree = "<group>"; };
 		F81A3D4A27819CE300032AAA /* PostCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCell.swift; sourceTree = "<group>"; };
 		F81A3D4B27819CE300032AAA /* PostCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PostCell.xib; sourceTree = "<group>"; };

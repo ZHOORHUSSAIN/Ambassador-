@@ -128,8 +128,26 @@ extension EmbassyViewController: UITableViewDataSource {
     UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "PostCell") as! PostCell
         let post = searchController.isActive ? filteredPost[indexPath.row]: posts[indexPath.row]
-        cell.configure(with: post)
-        return cell.configure(with: posts[indexPath.row])
+        DispatchQueue.main.async {
+            cell.usernamelable.text = post.name
+            cell.passportid.text = post.passportid
+        
+            cell.phonenumber.text = post.phonenumber
+            cell.expirydate.text = post.expirdate
+            cell.country.text = post.country
+            cell.citylable.text = post.city
+            cell.nameofhotel.text = post.nameofhotel
+            cell.dateofgoing.text = post.dateofgoing
+            cell.dateofreturn.text = post.dateofreturn
+            cell.postimageview.loadImageUsingCache(with: post.imageUrl)
+            cell.userimageView.loadImageUsingCache(with: post.user.imageUrl)
+        }
+        return cell
+        
+//        cell.configure(with: post)
+        
+       
+//            .configure(with: posts[indexPath.row])
     }
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         selectedPost = posts[indexPath.row]
