@@ -10,7 +10,17 @@ import Firebase
 class DetailsViewController: UIViewController {
     var selectedPost:Post?
     var selectedPostImage:UIImage?
-    @IBOutlet weak var postimageview: UIImageView!
+    @IBOutlet weak var postimageview: UIImageView!{
+        didSet{
+            postimageview.layer.shadowColor = UIColor.gray.cgColor
+            //        viewRegister.layer.shadowOpacity = 1
+            postimageview.layer.shadowOffset = .zero
+            postimageview.layer.cornerRadius = 10
+            postimageview.layer.shadowPath = UIBezierPath(rect: postimageview.bounds).cgPath
+            postimageview.layer.shouldRasterize = true
+            self.postimageview.layer.cornerRadius = 10
+        }
+    }
     
     @IBOutlet weak var nameTextfild: UILabel!
     
@@ -42,10 +52,15 @@ class DetailsViewController: UIViewController {
     
     
     
+    @IBOutlet weak var viewDetails: UIView!{
+        didSet {
+            viewDetails.layer.cornerRadius = 8
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationItem.backBarButtonItem = UIBarButtonItem(title: "backButton".localized, style: .plain, target: nil, action: nil)
+//        navigationItem.backBarButtonItem = UIBarButtonItem(title: "backButton".localized, style: .plain, target: nil, action: nil)
         if let selectedPost = selectedPost,
         let selectedImage = selectedPostImage{
             nameTextfild.text = selectedPost.name

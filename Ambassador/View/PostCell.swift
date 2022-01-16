@@ -9,9 +9,28 @@ import UIKit
 
 class PostCell: UITableViewCell {
 
-    @IBOutlet weak var postimageview: UIImageView!
+    @IBOutlet weak var postimageview: UIImageView!{
+        didSet {
+            postimageview.layer.shadowColor = UIColor.gray.cgColor
+            //        viewRegister.layer.shadowOpacity = 1
+            postimageview.layer.shadowOffset = .zero
+            postimageview.layer.cornerRadius = 10
+            postimageview.layer.shadowPath = UIBezierPath(rect: postimageview.bounds).cgPath
+            postimageview.layer.shouldRasterize = true
+            self.postimageview.layer.cornerRadius = 10
+                    
+        }
+    }
     
-    @IBOutlet weak var userimageView: UIImageView!
+    @IBOutlet weak var userimageView: UIImageView!{
+        didSet {
+            userimageView.layer.borderColor = UIColor.systemGray.cgColor
+            userimageView.layer.borderWidth = 3.0
+            userimageView.layer.cornerRadius = userimageView.bounds.height / 2
+            userimageView.layer.masksToBounds = true
+            userimageView.isUserInteractionEnabled = true
+        }
+    }
     
     @IBOutlet weak var usernamelable: UILabel!
     
@@ -39,7 +58,17 @@ class PostCell: UITableViewCell {
     @IBOutlet weak var dateofreturn: UILabel!
     
     
+    @IBOutlet weak var viewPostcell: UIView!{
+        didSet {
+            viewPostcell.layer.cornerRadius = 8
+        }
+    }
     
+    @IBOutlet weak var viewImage: UIView!{
+        didSet {
+            viewImage.layer.cornerRadius = 8
+        }
+    }
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -53,7 +82,7 @@ class PostCell: UITableViewCell {
     
     func configure(with post:Post) -> UITableViewCell {
             usernamelable.text = post.name
-            passportid.text = post.id
+            passportid.text = post.passportid
 //            namelable.text = post.name
         
         phonenumber.text = post.phonenumber

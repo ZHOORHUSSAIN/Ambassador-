@@ -55,6 +55,7 @@ struct Post {
    var nameofhotel = ""
     var dateofgoing = ""
     var dateofreturn = ""
+    var passportid = ""
     var createdAt:Timestamp?
     init(dict:[String:Any],id:String,user :User) {
         if let name = dict["name"] as? String,
@@ -66,6 +67,7 @@ struct Post {
            let nameofhotel = dict["nameofhotel"] as? String,
            let dateofgoing = dict["dateofgoing"] as? String,
            let dateofreturn = dict["dateofreturn"] as? String,
+           let passportid = dict["passportid"] as? String,
            let createdAt = dict["createdAt"] as? Timestamp {
             self.name = name
             self.imageUrl = imageUrl
@@ -77,6 +79,7 @@ struct Post {
             self.dateofgoing = dateofgoing
             self.dateofreturn = dateofreturn
             self.createdAt = createdAt
+            self.passportid = passportid
         }
         self.id = id
         self.user = user

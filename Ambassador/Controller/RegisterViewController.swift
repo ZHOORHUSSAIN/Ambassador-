@@ -25,15 +25,39 @@ class RegisterViewController: UIViewController {
         
     }
     
-    @IBOutlet weak var nameTextfild: UITextField!
+    @IBOutlet weak var nameTextfild: UITextField!{
+        didSet {
+            nameTextfild.layer.cornerRadius = 15
+            nameTextfild.layer.shadowRadius = 10
+            nameTextfild.layer.shadowOpacity = 0.3
+        }
+    }
     
     
-    @IBOutlet weak var emailTextfild: UITextField!
+    @IBOutlet weak var emailTextfild: UITextField!{
+        didSet {
+            emailTextfild.layer.cornerRadius = 15
+            emailTextfild.layer.shadowRadius = 10
+            emailTextfild.layer.shadowOpacity = 0.3
+        }
+    }
     
-    @IBOutlet weak var passwordTextfild: UITextField!
+    @IBOutlet weak var passwordTextfild: UITextField!{
+        didSet {
+            passwordTextfild.layer.cornerRadius = 15
+            passwordTextfild.layer.shadowRadius = 10
+            passwordTextfild.layer.shadowOpacity = 0.3
+        }
+    }
     
     
-    @IBOutlet weak var passwordConfirmationtextfild: UITextField!
+    @IBOutlet weak var passwordConfirmationtextfild: UITextField!{
+        didSet {
+            passwordConfirmationtextfild.layer.cornerRadius = 15
+            passwordConfirmationtextfild.layer.shadowRadius = 10
+            passwordConfirmationtextfild.layer.shadowOpacity = 0.3
+        }
+    }
     
     @IBOutlet weak var Namelable: UILabel!{
         didSet {
@@ -87,8 +111,9 @@ class RegisterViewController: UIViewController {
         super.viewDidLoad()
         imagePickerController.delegate = self
         // Do any additional setup after loading the view.
-        navigationItem.backBarButtonItem = UIBarButtonItem(title: "backButton".localized, style: .plain, target: nil, action: nil)
-        
+//        navigationItem.backBarButtonItem = UIBarButtonItem(title: "backButton".localized, style: .plain, target: nil, action: nil)
+//
+        view.addGestureRecognizer(UITapGestureRecognizer(target: view, action: #selector(UIView.endEditing(_:))))
         
     }
     
@@ -184,14 +209,11 @@ class RegisterViewController: UIViewController {
                     }
                 }
             }
-//        }else{
-//            if passwordTextfild.text != passwordConfirmationtextfild.text!{
-//                errorLable.te
-//            }
-//        }
+        
+        }
         }
     }
-}
+
 
 
 extension RegisterViewController: UIImagePickerControllerDelegate,UINavigationControllerDelegate{

@@ -20,7 +20,13 @@ var activityIndicator = UIActivityIndicatorView()
     }
     
     
-    @IBOutlet weak var psswordTextfildlogin: UITextField!
+    @IBOutlet weak var psswordTextfildlogin: UITextField!{
+        didSet {
+            psswordTextfildlogin.layer.cornerRadius = 15
+            psswordTextfildlogin.layer.shadowRadius = 10
+            psswordTextfildlogin.layer.shadowOpacity = 0.3
+        }
+    }
     
     
     @IBOutlet weak var lableEmaillogin: UILabel!{
@@ -58,8 +64,10 @@ var activityIndicator = UIActivityIndicatorView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationItem.backBarButtonItem = UIBarButtonItem(title: "backButton".localized, style: .plain, target: nil, action: nil)
+//        navigationItem.backBarButtonItem = UIBarButtonItem(title: "backButton".localized, style: .plain, target: nil, action: nil)
         // Do any additional setup after loading the view.
+        
+        view.addGestureRecognizer(UITapGestureRecognizer(target: view, action: #selector(UIView.endEditing(_:))))
     }
     
     @IBAction func eyePassword(_ sender: AnyObject) {
