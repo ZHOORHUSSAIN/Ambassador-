@@ -127,7 +127,7 @@ class PostViewController: UIViewController {
         if let selectedPost = selectedPost,
         let selectedImage = selectedPostImage{
             postnametextfild.text = selectedPost.name
-            idTextFild.text = selectedPost.id
+            idTextFild.text = selectedPost.passportid
             PostImageView.image = selectedImage
             expirdatetextfild.text = selectedPost.expirdate
             phonenumbertextfild.text = selectedPost.phonenumber
